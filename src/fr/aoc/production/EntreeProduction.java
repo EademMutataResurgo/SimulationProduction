@@ -1,6 +1,8 @@
 package fr.aoc.production;
 
-public class EntreeProduction extends ElementsProductions {
+import java.util.ArrayList;
+
+class EntreeProduction extends ElementsProductions {
 
     /**
      * redefinition de toString

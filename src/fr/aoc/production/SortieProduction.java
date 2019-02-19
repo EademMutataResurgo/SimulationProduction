@@ -1,5 +1,7 @@
 package fr.aoc.production;
 
+import java.util.ArrayList;
+
 public class SortieProduction extends ElementsProductions {
 
     /**

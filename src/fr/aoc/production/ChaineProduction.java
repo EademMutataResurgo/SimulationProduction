@@ -1,5 +1,6 @@
 package fr.aoc.production;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -9,7 +10,7 @@ public class ChaineProduction {
     private String nom;
     private String desc;
     private int nivActivation;
-    private List ElemProd=new List(2);//1:Entree,2:Sortie
+    private ArrayList ElemProd=new ArrayList<ElementsProductions>();//1:Entree,2:Sortie
 
     /**
      *
@@ -26,10 +27,10 @@ public class ChaineProduction {
     }
 
     /**
-     *
-     * @return
+     *Simule le fonctionnement de la chaine de production et renvoie les éléments consommés et les éléments produits
      */
     public void evaluer(){
-
+        ElemProd.get(0);
+        ElemProd.get(1);
     }
 }
