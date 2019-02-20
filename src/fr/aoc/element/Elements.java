@@ -1,27 +1,24 @@
 package fr.aoc.element;
 
-/**
- *
- */
 public class Elements {
     private String code;
     private String nom;
-    private float quantite;
+    private double quantite;
     private String unite;
-    private float prixAchat;
-    private float prixVente;
+    private double prixAchat;
+    private double prixVente;
 
     /**
-     *
      * constructeur de Elements
+     * définit à partir des informations données par le stockage
      * @param code
      * @param nom
      * @param quantite
      * @param unite
-     * @param prixAchat
-     * @param prixVente
+     * @param prixAchat -1 si non achetable
+     * @param prixVente -1 si non vendable
      */
-    protected Elements(String code,String nom,float quantite,String unite,float prixAchat,float prixVente){
+    protected Elements(String code,String nom,double quantite,String unite,double prixAchat,double prixVente){
         this.code=code;
         this.nom=nom;
         this.quantite=quantite;
@@ -31,10 +28,10 @@ public class Elements {
     }
 
     /**
-     * redfinition abstract de toString
-     * @return description de la méthode
+     * redfinition de toString
+     * @return description de l'élément
      */
     public String toString(){
-        return ("");
+        return ("Element "+this.code+" "+this.nom+", quantité: "+this.quantite+" "+this.unite+", prix d'achat: "+this.prixAchat+", prix de vente: "+this.prixVente);
     }
 }

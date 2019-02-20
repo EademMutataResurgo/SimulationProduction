@@ -4,23 +4,29 @@ import java.util.ArrayList;
 
 abstract class ElementsProductions {
 
-    private ArrayList flux=new ArrayList();//liste des elements entrants ou sortants
+    private String[] flux;;//liste des elements entrants ou sortants, indice pair=code element, indice impair=quantité
 
+    public ElementsProductions(String data){
+        data=data.replaceAll("[()]",""); //regex à verifier
+        this.flux=data.split(",");
+    }
 
     /**
-     * Calcul les valeurs des flux à partir du niveau d'activation de la chaine de production associée
-     * @param nivActivation niveau d'activation de la chaine de production associé
-     * @param qtElement liste des éléments traités dans la chaine de production associé
-     * @return
+     * Calcul les éléments utilisés durant la production renvoie la liste de se qui a été produit ou consommer
+     * @param nivAct niveau d'activation de la chaîne de production associé
+     * @return renvoie la liste de se qui a été produit ou consommer
      */
-    public ArrayList fonctionnement(int nivActivation, ArrayList<Integer> qtElement){
-        ArrayList quantite=new ArrayList();
-        for (int i = 0; i < flux.size(); i++) {
-            quantite.add(qtElement.get(i)*nivActivation);
+    protected ArrayList<String[]> evaluation(int nivAct){
+        ArrayList<String[]> production = new ArrayList<String[]>();
+        String[] buffer=new String[2];
+        for (int i = 0; i < this.flux.length; i=i+2) {
+            buffer[0]=this.flux[i];
+            buffer[1]=String.valueOf(Float.parseFloat(this.flux[i+1])*nivAct);
+            production.add(buffer);
         }
-
-        return(quantite);
+        return(production);
     }
+
 
     /**
      * redfinition abstract de toString

@@ -19,9 +19,7 @@ public class Usine {
         this.element=new Fichier(pathElements);
         this.chaines=new Fichier(pathChaines);
 
-        Boolean test;
-
-        if(!(this.element.loadData()) || !(this.element.loadData())){
+        if(!(this.element.loadData()) || !(this.chaines.loadData())){
             return(false);
         }
         return false;
@@ -31,4 +29,14 @@ public class Usine {
         this.stockage=new Stockage(this.element.getData());
     }
 
+    public void creationChaines(){
+        for (int i = 0; i < chaines.getData().size(); i++) {
+
+        }
+    }
+
+    @Override
+    public String toString() {
+        return this.stockage.toString();
+    }
 }

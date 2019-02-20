@@ -16,10 +16,10 @@ public class Fichier {
     }
 
     public boolean loadData(){
-        File file = new File(this.path);
         try{
             BufferedReader reader = new BufferedReader(new FileReader(this.path));
             String line = new String();
+            reader.readLine();
             while((line = reader.readLine())!=null){
                 String[] lineSplit = line.split(";");
                 this.data.add(lineSplit);
