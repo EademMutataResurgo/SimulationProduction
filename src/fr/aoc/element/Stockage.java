@@ -4,26 +4,27 @@ import java.util.ArrayList;
 
 public class Stockage {
 
-    private ArrayList<Elements> stock=new ArrayList<Elements>();
+    private ArrayList<Elements> stock= new ArrayList<>();
 
     /**
      * Crée l'ensemble des éléments à partir des données fournies et stock dans une liste ces éléments
-     * @param inventaire Donnée contenu le fichier csv elements. Récupérer dans la classe fichier et envoyé par Usine.
+     * @param anhdjt Donnée contenu le fichier csv elements. Récupérer dans la classe fichier et envoyé par Usine.
      */
-    public Stockage(ArrayList<String[]> inventaire){
-        for (int i = 0; i < inventaire.size(); i++) {
-            String[] elem = inventaire.get(i);
-
-            //on remplace les NA du fichier par des -1 pour éviter les problèmes lors du cast en double
-            if(elem[5].equals("NA")){
-                elem[5]="-1";
+    public Stockage(ArrayList<String[]> anhdjt){
+        for (String[] elem : anhdjt) {
+            if (elem[5].equals("NA")) {
+                elem[5] = "-1";
             }
-            if(elem[4].equals("NA")){
-                elem[4]="-1";
+            if (elem[4].equals("NA")) {
+                elem[4] = "-1";
             }
 
-            this.stock.add(new Elements(elem[0],elem[1],Double.parseDouble(elem[2]),elem[3],Double.parseDouble(elem[4]),Double.parseDouble(elem[5])));
+            this.stock.add(new Elements(elem[0], elem[1], Double.parseDouble(elem[2]), elem[3], Double.parseDouble(elem[4]), Double.parseDouble(elem[5])));
         }
+    }
+
+    public ArrayList<Elements> getStock() {
+        return stock;
     }
 
     /**
@@ -32,10 +33,10 @@ public class Stockage {
      */
     @Override
     public String toString() {
-        String desc="Stock de l'usine \n";
-        for (int i = 0; i < stock.size(); i++) {
-            desc+=stock.get(i).toString()+" \n";
+        StringBuilder desc= new StringBuilder("Stock de l'usine \n");
+        for (Elements elem : this.stock) {
+            desc.append(elem.toString()).append(" \n");
         }
-        return desc;
+        return desc.toString();
     }
 }

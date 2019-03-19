@@ -6,6 +6,7 @@ public class Main {
         usine.loadFichier("/home/cortes/IdeaProjects/elements.csv","/home/cortes/IdeaProjects/chaines.csv");
         usine.creationStockage();
         System.out.println(usine.toString());
+        usine.creationChaines();
     }
 
 }

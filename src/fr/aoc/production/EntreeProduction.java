@@ -1,17 +1,16 @@
 package fr.aoc.production;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 class EntreeProduction extends ElementsProductions {
 
-    public EntreeProduction(String data){
+    EntreeProduction(String data){
         super(data);
     }
 
-    protected void production(){
 
 
-    }
 
     /**
      * redefinition de toString

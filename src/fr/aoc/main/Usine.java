@@ -5,17 +5,23 @@ import fr.aoc.production.ChaineProduction;
 
 import java.util.ArrayList;
 
-public class Usine {
+class Usine {
 
-    private ArrayList<ChaineProduction> listeChaine = new ArrayList<ChaineProduction>();
+    private ArrayList<ChaineProduction> listeChaine = new ArrayList<>();
     private Stockage stockage;
     private Fichier element;
     private Fichier chaines;
 
-    public Usine(){
+    Usine(){
     }
 
-    public boolean loadFichier(String pathElements, String pathChaines){
+    /**
+     * Chargement des données des fichiers csv fournis par l'utilisateur
+     * @param pathElements chemin d'accès (absolu) du fichier éléments
+     * @param pathChaines chemin d'accès (absolu) du fichier chaine
+     * @return un booleen indiquant si les fichiers ont bien été chargé
+     */
+    boolean loadFichier(String pathElements, String pathChaines){
         this.element=new Fichier(pathElements);
         this.chaines=new Fichier(pathChaines);
 
@@ -25,14 +31,27 @@ public class Usine {
         return false;
     }
 
+    /*Gestion du stockage*/
+
+    /**
+     * Création du stockage à partir du fichier csv élément
+     */
     public void creationStockage(){
         this.stockage=new Stockage(this.element.getData());
+    }
+
+    public void accèsDonnéeStockage(){
+
     }
 
     public void creationChaines(){
         for (int i = 0; i < chaines.getData().size(); i++) {
 
         }
+    }
+
+    public Stockage getStockage() {
+        return stockage;
     }
 
     @Override

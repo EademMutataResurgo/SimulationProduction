@@ -1,24 +1,23 @@
 package fr.aoc.main;
 
-import java.io.File;
+import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.*;
-import java.lang.reflect.Array;
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class Fichier {
+class Fichier {
 
-    private String path=new String();
-    private ArrayList<String[]> data=new ArrayList<String[]>();
+    private String path;
+    private ArrayList<String[]> data= new ArrayList<>();
 
-    public Fichier(String path){
+    Fichier(String path){
         this.path=path;
     }
 
-    public boolean loadData(){
+    boolean loadData(){
         try{
             BufferedReader reader = new BufferedReader(new FileReader(this.path));
-            String line = new String();
+            String line;
             reader.readLine();
             while((line = reader.readLine())!=null){
                 String[] lineSplit = line.split(";");
@@ -33,7 +32,7 @@ public class Fichier {
         }
     }
 
-    public ArrayList<String[]> getData() {
+    ArrayList<String[]> getData() {
         return data;
     }
 
