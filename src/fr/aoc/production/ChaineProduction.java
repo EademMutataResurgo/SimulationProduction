@@ -18,9 +18,17 @@ public class ChaineProduction {
     public ChaineProduction(String code,String nom,int nivActivation,String entree, String sortie){
         this.code=code;
         this.nom=nom;
-        this.setNivActivation(nivActivation);
+        this.nivActivation=nivActivation;
         this.elemProd.add(new EntreeProduction(entree));
         this.elemProd.add(new SortieProduction(sortie));
+    }
+
+    public ArrayList<ElementsProductions> getElemProd() {
+        return this.elemProd;
+    }
+
+    public int getNivActivation() {
+        return this.nivActivation;
     }
 
     /**
@@ -35,6 +43,10 @@ public class ChaineProduction {
             System.out.println("Niveau d'activation de la chaine "+this.code+" "+this.nom+" incorrect, valeur par defaut à 0");
             this.nivActivation=0;
         }
+    }
+
+    public String toString() {
+        return "Code cp: " + this.code + "; nom cp: " + this.nom + "; niveau d'activation: " + this.nivActivation + "; éléments en entrée et en sortie: " + this.elemProd.toString();
     }
 
     public void production(String[] etatStock){

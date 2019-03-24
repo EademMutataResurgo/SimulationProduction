@@ -1,6 +1,6 @@
 package fr.aoc.element;
 
-class Elements {
+public class Elements {
     private String code;
     private String nom;
     private double quantite;

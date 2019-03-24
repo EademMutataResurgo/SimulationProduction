@@ -1,15 +1,28 @@
 package fr.aoc.production;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
-abstract class ElementsProductions {
 
-    private String[] flux;;//liste des elements entrants ou sortants, indice pair=code element, indice impair=quantité
+public abstract class ElementsProductions {
+
+    public String[] flux;;//liste des elements entrants ou sortants, indice pair=code element, indice impair=quantité
+    public Hashtable elements;
 
     public ElementsProductions(String data){
         data=data.replaceAll("[()]",""); //regex à verifier
+        data = data.replaceAll(" ", "");
         this.flux=data.split(",");
+        Hashtable elements = new Hashtable();
+
+        for (int i = 0; i < this.flux.length; i = i + 2) {
+            elements.put(flux[i], flux[i + 1]);
+        }
+        this.elements = elements;
+
     }
+
+
 
     /**
      * Calcul les éléments utilisés durant la production renvoie la liste de se qui a été produit ou consommer
@@ -24,14 +37,16 @@ abstract class ElementsProductions {
             buffer[1]=String.valueOf(Float.parseFloat(this.flux[i+1])*nivAct);
             production.add(buffer);
         }
+        System.out.println(production);
         return(production);
     }
 
 
-    /**
-     * redfinition abstract de toString
-     * @return description de la méthode
-     */
-    @Override
-    public abstract String toString();
+    public String toString() {
+        String affiche = "";
+        for (int i = 0; i < this.flux.length; i++) {
+            affiche = affiche + ";" + this.flux[i];
+        }
+        return affiche;
+    }
 }
