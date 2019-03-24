@@ -1,24 +1,16 @@
 package fr.aoc.production;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 
 
 public abstract class ElementsProductions {
 
-    public String[] flux;;//liste des elements entrants ou sortants, indice pair=code element, indice impair=quantité
-    public Hashtable elements;
+    public String[] flux;//liste des elements entrants ou sortants, indice pair=code element, indice impair=quantité
 
     public ElementsProductions(String data){
         data=data.replaceAll("[()]",""); //regex à verifier
         data = data.replaceAll(" ", "");
         this.flux=data.split(",");
-        Hashtable elements = new Hashtable();
-
-        for (int i = 0; i < this.flux.length; i = i + 2) {
-            elements.put(flux[i], flux[i + 1]);
-        }
-        this.elements = elements;
 
     }
 
